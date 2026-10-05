@@ -1,0 +1,17 @@
+{
+  "kind": "evm_project",
+  "token": {
+    "contract": "LaunchToken",
+    "name": "GENESIS PROTOCOL",
+    "symbol": "GENESIS",
+    "decimals": 18
+  },
+  "pool": {
+    "pairedCurrency": "0x0000000000000000000000000000000000000000",
+    "fee": 3000,
+    "tickSpacing": 60,
+    "initialPrice": "79228162514264337593543950336"
+  },
+  "contracts": [],
+  "notes": "Genesis Protocol is a token-only launch. The only contract in the accepted tree is LaunchToken (src/LaunchToken.sol, solc 0.8.26, evm_version cancun, optimizer 200 runs, bytecode_hash none), so the contracts list is empty and no constructor arguments, $token, $owner or $contract references are used anywhere. LaunchToken has no constructor arguments; its name \"GENESIS PROTOCOL\", symbol \"GENESIS\" and 18 decimals are compile-time constants in that file and are repeated here verbatim. Its constructor mints the fixed supply to msg.sender, which in the launch is the factory; the token has no owner, admin, mint, burn, pause, blocklist, fee, upgrade or proxy path, so the launch grants no privileged role and names no privileged wallet. The supply split, the LP, the MerkleDistributor and the initialization-only pool guard are supplied by the factory and launch policy and are deliberately not listed here; there are no initialization calls. The pool pairs with native ETH (the zero address). fee 3000 and tickSpacing 60 are the launch policy admission tier, and initialPrice is a decimal sqrtPriceX96 (2^96); the deployer derives the effective opening price from the pinned policy and the pool trades at the network trading fee the factory reads on chain, so these values are admission inputs and not a description of the live trading fee. Supply, allocations, owners, chain, policy version and artifact hashes are not manifest fields and are bound later by the attestation, admission and deployment services. These notes are explanatory only and carry no deployment authority."
+}
