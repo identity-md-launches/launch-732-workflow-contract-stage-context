@@ -64,6 +64,10 @@ contract LaunchTokenHandler is Test {
     }
 }
 
+/// @dev fail-on-revert is switched on for this suite. Under the repository default (false) an assertion
+/// that fails inside the handler is counted as one more ignored revert, so the handler's own checks
+/// ("allowance not spent exactly", "outsider obtained tokens") could never fail a run.
+/// forge-config: default.invariant.fail-on-revert = true
 contract LaunchTokenInvariantTest is Test {
     uint256 internal constant SUPPLY = 1e27;
 
